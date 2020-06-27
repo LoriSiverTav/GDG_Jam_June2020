@@ -496,51 +496,77 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1409855143
-GameObject:
+--- !u!1001 &6540076810623137551
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1409855145}
-  - component: {fileID: 1409855144}
-  m_Layer: 0
-  m_Name: LevelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1409855144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409855143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef00eeb19855dfe43bfb6d5f77fd0997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels:
-  - rooms: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  - rooms: 
-  - rooms: 
-  - rooms: 
---- !u!4 &1409855145
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409855143}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.82411236, y: 1.316901, z: -50.60637}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.82411236
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.316901
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -50.60637
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400934, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400935, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: levels.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540076809214400936, guid: 23f086580f4a872498217e8a124d8b53,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 23f086580f4a872498217e8a124d8b53, type: 3}

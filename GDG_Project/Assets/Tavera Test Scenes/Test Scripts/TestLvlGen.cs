@@ -4,72 +4,25 @@ using UnityEngine;
 
 public class TestLvlGen : MonoBehaviour
 {
-    private enum roomDirection { start, sides, downOnce, nonPath};
-
     public Transform[] rowSpawners0;
     public Transform[] rowSpawners1;
     public Transform[] rowSpawners2;
     public Transform[] rowSpawners3;
-
     public GameObject[] roomTypes;
 
-    private int[,] solutionPath = new int[4,4];
-    int lastUsedRow;
-    int lastUsedCol;
+    public int lvlIndex;
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 4; i++)
-            for (int j = 0; j < 4; j++)
-            {
-                solutionPath[i, j]= -1;
-                Debug.Log("Row: " + i + " Col: " + j);
-            }
-
-
-        int randomStartCol = Random.Range(0, 4);
-        GenerateRoom(0, randomStartCol, roomDirection.start);
-        lastUsedRow = 0;
-        lastUsedCol = randomStartCol;
-
-        GenerateSolutionPath();
+        int[,] solutionPath = LevelManager.instance.GetSolutionPath();
+        DrawRooms(solutionPath);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-
-    
-    private void ReplaceRoom(int row, int col, int newRoom)
-    {
-        Transform[] targetRow = null;
-
-        switch(row)
-        {
-            case 0:
-                targetRow = rowSpawners0;
-                break;
-            case 1:
-                targetRow = rowSpawners1;
-                break;
-            case 2:
-                targetRow = rowSpawners2;
-                break;
-            case 3:
-                targetRow = rowSpawners3;
-                break;
-            default:
-                break;
-        }
-
-        if(targetRow[col].gameObject.tag != "EmptyRoom")
-        {
-            Destroy(targetRow[col].gameObject);
-            AddRoom(row, col, newRoom);
-        }
     }
 
     private void AddRoom(int row, int col, int room)
@@ -98,112 +51,80 @@ public class TestLvlGen : MonoBehaviour
         targetRow[col] = newRoom.transform;
     }
 
-    private void GenerateRoom(int row, int col, roomDirection direction)
+    private void DrawRooms(int[,] solutionPath)
     {
-        /*
-         * 0 = Not part of solution path - no entrances/exits
-         * 1 = Has exits to the right and left
-         * 2 = Has exits to the right, left, and downwards
-         * 3 = Has exits to the right, left, and upwards 
-         * 4 = All 4 sides are open
-        */
-
-        int room = 1;
-
-        switch(direction)
+        for(int i = 0; i < 4; i++)
         {
-            case roomDirection.start:
-                room = Random.Range(1, 3);
-                break;
-            case roomDirection.sides:
-                room = 1;
-                break;
-            case roomDirection.downOnce:
-                room = 3;
-                break;
+            for(int j = 0; j < 4; j++)
+            {
+                if(solutionPath[i,j] != -1)
+                    AddRoom(i, j, solutionPath[i, j]);
+            }
         }
-
-        AddRoom(row, col, room);
     }
 
-    private bool IsSpotOk(int row, int col)
+    static public int[,] GenerateLvlSolution()
     {
-        if(row < 0 || row >= 4) { return false; }
-        if(col < 0 || col >= 4) { return false; }
+        int[,] solutionPath = new int[4, 4];
 
-        Transform[] targetRow = null;
+        for (int i = 0; i < 4; i++)
+            for (int j = 0; j < 4; j++)
+                solutionPath[i, j] = -1;
 
-        switch(row)
-        {
-            case 0:
-                targetRow = rowSpawners0;
-                break;
-            case 1:
-                targetRow = rowSpawners1;
-                break;
-            case 2:
-                targetRow = rowSpawners2;
-                break;
-            case 3:
-                targetRow = rowSpawners3;
-                break;
-            default:
-                break;
-        }
-
-        return (targetRow[col].gameObject.tag == "EmptyRoom");
-    }
-    
-    public void GenerateSolutionPath()
-    {
         int downCounter = 0;
+
+        // Generate a room for the starting room
+        int initialRndCol = Random.Range(0, 4);
+        solutionPath[0, initialRndCol] = Random.Range(1, 3);
+        
+        int myLastRow = 0;
+        int myLastCol = initialRndCol;
 
         for(; ; )
         {
-            int randomDir = Random.Range(1, 6);
+            int rdmDirection = Random.Range(1, 6);
 
-            if(randomDir == 1 || randomDir == 2)
+            if(rdmDirection == 1 || rdmDirection == 2)
             {
-                // Try to go Left
-                if(IsSpotOk(lastUsedRow, lastUsedCol-1))
+                // Try to go left
+                if(IsPathOk(solutionPath, myLastRow, myLastCol - 1))
                 {
-                    GenerateRoom(lastUsedRow, lastUsedCol - 1, roomDirection.sides);
-                    lastUsedCol--;
+                    solutionPath[myLastRow, myLastCol - 1] = 1;
+                    myLastCol--;
                     downCounter = 0;
                 }
                 else
                 {
-                    randomDir = 5;
+                    rdmDirection = 5;
                 }
             }
-            else if(randomDir == 3 || randomDir == 4)
+            else if(rdmDirection == 3 || rdmDirection == 4)
             {
-                // Try to go Right
-                if(IsSpotOk(lastUsedRow, lastUsedCol+1))
+                // Try to go right
+                if(IsPathOk(solutionPath, myLastRow, myLastCol + 1))
                 {
-                    GenerateRoom(lastUsedRow, lastUsedCol + 1, roomDirection.sides);
-                    lastUsedCol++;
+                    solutionPath[myLastRow, myLastCol + 1] = 1;
+                    myLastCol++;
                     downCounter = 0;
                 }
                 else
                 {
-                    randomDir = 5;
+                    rdmDirection = 5;
                 }
             }
-            else if(randomDir == 5)
+            else if(rdmDirection == 5)
             {
-                // Go down
                 downCounter++;
 
                 // Update the previous room to have an opening going downwards
                 int roomToSpawn = downCounter >= 2 ? 4 : 2;
-                ReplaceRoom(lastUsedRow, lastUsedCol, roomToSpawn);
-                
-                // Create the new room
-                if(IsSpotOk(lastUsedRow + 1, lastUsedCol))
+                solutionPath[myLastRow, myLastCol] = roomToSpawn;
+
+                // Generate a room with an upward opening
+                if(IsPathOk(solutionPath, myLastRow + 1, myLastCol))
                 {
-                    GenerateRoom(lastUsedRow + 1, lastUsedCol, roomDirection.downOnce);
-                    lastUsedRow++;
+                    solutionPath[myLastRow + 1, myLastCol] = 3;
+                    myLastRow++;
                 }
                 else
                 {
@@ -211,5 +132,14 @@ public class TestLvlGen : MonoBehaviour
                 }
             }
         }
+        
+        return solutionPath;
+    }
+
+    static public bool IsPathOk(int[,] solutionPath, int row, int col)
+    {
+        if(row < 0 || row >= 4 || col < 0 || col >= 4) { return false; }
+
+        return solutionPath[row, col] == -1;
     }
 }

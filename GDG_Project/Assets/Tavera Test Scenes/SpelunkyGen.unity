@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 1393718681}
   - component: {fileID: 1393718680}
   m_Layer: 0
-  m_Name: Level Manager
+  m_Name: Level Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -778,6 +778,7 @@ MonoBehaviour:
   - {fileID: 5901060955968335857, guid: a3c12ff6cb5d63a42bd8fd00bd50a95a, type: 3}
   - {fileID: 4920230928871775933, guid: 49688c20d19aa3840b64a70e5e3b1bae, type: 3}
   - {fileID: 2778948877832087570, guid: 718075ad7fcc13847becbaa261d4491a, type: 3}
+  lvlIndex: 1
 --- !u!4 &1393718681
 Transform:
   m_ObjectHideFlags: 0
