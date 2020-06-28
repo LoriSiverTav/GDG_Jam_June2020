@@ -38,26 +38,30 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        //up and down controls
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        //if has trying to move
+        if (Input.anyKey)
         {
-            playerRB.velocity = Vector2.up * walkSpeed;
-        }
-        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-        {
-            playerRB.velocity = Vector2.down * walkSpeed;
-        }
-
-        //left and right controls 
-        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            playerRB.velocity = new Vector2(-walkSpeed, playerRB.velocity.y);
-           transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            playerRB.velocity = new Vector2(walkSpeed, playerRB.velocity.y);
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            //up and down controls
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            {
+                playerRB.velocity = Vector2.up * walkSpeed;
+            }
+            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            {
+                playerRB.velocity = Vector2.down * walkSpeed;
+            }
+        
+            //left and right controls 
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            {
+                playerRB.velocity = new Vector2(-walkSpeed, playerRB.velocity.y);
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            {
+                playerRB.velocity = new Vector2(walkSpeed, playerRB.velocity.y);
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
         }
 
         //brakes for playermovement
