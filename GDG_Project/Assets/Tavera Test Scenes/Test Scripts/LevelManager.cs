@@ -9,13 +9,16 @@ using Random = UnityEngine.Random;
 public class LevelSol
 {
     public int[,] solutionPath;
+    public Vector2 startPoint;              // Hold a reference to the starting room of the level
+    public Vector2 endPoint;                // Hold a reference to the end room of the level
 }
 
 public class LevelManager : MonoBehaviour
 {
     public LevelSol[] levels;
     public static LevelManager instance;
-    public int lvlIndex;
+    public int lvlIndex;                    // Lets the level manager know what solution path to render
+    public int gridSize = 3;                // ie. 3x3 grid 
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +35,14 @@ public class LevelManager : MonoBehaviour
         }
 
         foreach (var lvl in levels)
-            lvl.solutionPath = GenerateLvlSolution();
+        {
+            Vector2 start;
+            Vector2 end;
+
+            lvl.solutionPath = GenerateLvlSolution(out start, out end);
+            lvl.startPoint = start;
+            lvl.endPoint = end;
+        }
     }
 
     // Update is called once per frame
@@ -54,22 +64,26 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    static public int[,] GenerateLvlSolution()
+    static public int[,] GenerateLvlSolution(out Vector2 start, out Vector2 end)
     {
-        int[,] solutionPath = new int[4, 4];
+        int[,] solutionPath = new int[instance.gridSize, instance.gridSize];
 
-        for (int i = 0; i < 4; i++)
-            for (int j = 0; j < 4; j++)
+        // Initialize multi-array to have values of -1 - "Empty Room" status
+        for (int i = 0; i < instance.gridSize; i++)
+            for (int j = 0; j < instance.gridSize; j++)
                 solutionPath[i, j] = -1;
 
+        // Counts how many times in a row the solution path goes downwards
         int downCounter = 0;
 
         // Generate a room for the starting room
-        int initialRndCol = Random.Range(0, 4);
+        int initialRndCol = Random.Range(0, instance.gridSize);
         solutionPath[0, initialRndCol] = Random.Range(1, 3);
 
-        int myLastRow = 0;
-        int myLastCol = initialRndCol;
+        int lastRow = 0;
+        int lastCol = initialRndCol;
+
+        start = new Vector2(lastRow, lastCol);
 
         for (; ; )
         {
@@ -78,10 +92,10 @@ public class LevelManager : MonoBehaviour
             if (rdmDirection == 1 || rdmDirection == 2)
             {
                 // Try to go left
-                if (IsPathOk(solutionPath, myLastRow, myLastCol - 1))
+                if (IsPathOk(solutionPath, lastRow, lastCol - 1))
                 {
-                    solutionPath[myLastRow, myLastCol - 1] = 1;
-                    myLastCol--;
+                    solutionPath[lastRow, lastCol - 1] = 1;
+                    lastCol--;
                     downCounter = 0;
                 }
                 else
@@ -92,10 +106,10 @@ public class LevelManager : MonoBehaviour
             else if (rdmDirection == 3 || rdmDirection == 4)
             {
                 // Try to go right
-                if (IsPathOk(solutionPath, myLastRow, myLastCol + 1))
+                if (IsPathOk(solutionPath, lastRow, lastCol + 1))
                 {
-                    solutionPath[myLastRow, myLastCol + 1] = 1;
-                    myLastCol++;
+                    solutionPath[lastRow, lastCol + 1] = 1;
+                    lastCol++;
                     downCounter = 0;
                 }
                 else
@@ -109,16 +123,17 @@ public class LevelManager : MonoBehaviour
 
                 // Update the previous room to have an opening going downwards
                 int roomToSpawn = downCounter >= 2 ? 4 : 2;
-                solutionPath[myLastRow, myLastCol] = roomToSpawn;
+                solutionPath[lastRow, lastCol] = roomToSpawn;
 
                 // Generate a room with an upward opening
-                if (IsPathOk(solutionPath, myLastRow + 1, myLastCol))
+                if (IsPathOk(solutionPath, lastRow + 1, lastCol))
                 {
-                    solutionPath[myLastRow + 1, myLastCol] = 3;
-                    myLastRow++;
+                    solutionPath[lastRow + 1, lastCol] = 3;
+                    lastRow++;
                 }
                 else
                 {
+                    end = new Vector2(lastRow, lastCol);
                     break;
                 }
             }
@@ -129,13 +144,13 @@ public class LevelManager : MonoBehaviour
 
     static public bool IsPathOk(int[,] solutionPath, int row, int col)
     {
-        if (row < 0 || row >= 4 || col < 0 || col >= 4) { return false; }
+        if (row < 0 || row >= instance.gridSize || col < 0 || col >= instance.gridSize) { return false; }
 
         return solutionPath[row, col] == -1;
     }
 
-    public int[,] GetSolutionPath()
+    public LevelSol GetLevelData()
     {
-        return levels[lvlIndex].solutionPath;
+        return levels[lvlIndex];
     }
 }

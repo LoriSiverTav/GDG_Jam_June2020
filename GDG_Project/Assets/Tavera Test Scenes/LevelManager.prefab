@@ -43,4 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef00eeb19855dfe43bfb6d5f77fd0997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels: []
+  levels:
+  - startPoint: {x: 0, y: 0}
+    endPoint: {x: 0, y: 0}
+  - startPoint: {x: 0, y: 0}
+    endPoint: {x: 0, y: 0}
+  - startPoint: {x: 0, y: 0}
+    endPoint: {x: 0, y: 0}
+  - startPoint: {x: 0, y: 0}
+    endPoint: {x: 0, y: 0}
+  lvlIndex: 0
+  gridSize: 3
