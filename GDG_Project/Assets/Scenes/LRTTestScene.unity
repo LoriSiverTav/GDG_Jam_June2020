@@ -121,21 +121,9 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!61 &349938763 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8815665748105868692, guid: 3f46ea7bea378894b9b0bade84831480,
-    type: 3}
-  m_PrefabInstance: {fileID: 8815665747775066591}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &349938765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8815665748105868690, guid: 3f46ea7bea378894b9b0bade84831480,
-    type: 3}
-  m_PrefabInstance: {fileID: 8815665747775066591}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &349938766 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8815665748105868689, guid: 3f46ea7bea378894b9b0bade84831480,
     type: 3}
   m_PrefabInstance: {fileID: 8815665747775066591}
   m_PrefabAsset: {fileID: 0}
@@ -1319,12 +1307,12 @@ PrefabInstance:
         type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 349938763}
+      objectReference: {fileID: 0}
     - target: {fileID: 8815665748105868693, guid: 3f46ea7bea378894b9b0bade84831480,
         type: 3}
       propertyPath: playerRB
       value: 
-      objectReference: {fileID: 349938766}
+      objectReference: {fileID: 0}
     - target: {fileID: 8815665748105868693, guid: 3f46ea7bea378894b9b0bade84831480,
         type: 3}
       propertyPath: walkSpeed
@@ -1334,6 +1322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isPuzzling
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815665748105868693, guid: 3f46ea7bea378894b9b0bade84831480,
+        type: 3}
+      propertyPath: keySpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8815665748105868694, guid: 3f46ea7bea378894b9b0bade84831480,
         type: 3}
