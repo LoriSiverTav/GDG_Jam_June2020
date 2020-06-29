@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,18 +8,24 @@ public class PlayerMovement : MonoBehaviour
     public BoxCollider2D playerCollider;
     public Rigidbody2D playerRB;
     public float walkSpeed = 4;
-    public bool isPuzzling = false;                      //affects if the movement or puzzle controls activate
+    public float keySpeed = 2;
+    public static bool isPuzzling = false;                      //affects if the movement or puzzle controls activate
+    public static bool isInRange = false;                       //is checked if close to chest/puzzle
 
     void Awake()
     {
-        playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         playerCollider = transform.GetComponent<BoxCollider2D>();
         playerRB = transform.GetComponent<Rigidbody2D>();
+        playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     private void Update()
     {
         //check for if isPuzzling
+        if (Input.GetKeyDown(KeyCode.E) && isInRange)
+        {
+            isPuzzling = !isPuzzling;
+        }
       
     }
 
@@ -29,11 +36,6 @@ public class PlayerMovement : MonoBehaviour
             Move();
         }
 
-        else
-        {
-            Puzzling();
-        }
-
     }
 
     public void Move()
@@ -41,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
         //if has trying to move
         if (Input.anyKey)
         {
+           playerRB.velocity = new Vector2(0, 0);
+
             //up and down controls
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
@@ -50,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerRB.velocity = Vector2.down * walkSpeed;
             }
-        
+
             //left and right controls 
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
@@ -63,16 +67,13 @@ public class PlayerMovement : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
         }
-
         //brakes for playermovement
-        else
-        {
+       else
+       {
             playerRB.velocity = new Vector2(0, 0);
-        }
-    }
+       }
 
-    public void Puzzling()
-    {
 
     }
+
 }
