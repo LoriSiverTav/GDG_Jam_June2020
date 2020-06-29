@@ -16,6 +16,8 @@ public class TestLvlGen : MonoBehaviour
     {
         LevelSol levelData = LevelManager.instance.GetLevelData();
         DrawRooms(levelData.solutionPath);
+        // Draw filler rooms
+        // Add chest and doors at the start and end points
     }
 
     // Update is called once per frame

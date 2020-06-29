@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -11,6 +12,7 @@ public class LevelSol
     public int[,] solutionPath;
     public Vector2 startPoint;              // Hold a reference to the starting room of the level
     public Vector2 endPoint;                // Hold a reference to the end room of the level
+    public int[] lockSolution;
 }
 
 public class LevelManager : MonoBehaviour
@@ -21,7 +23,7 @@ public class LevelManager : MonoBehaviour
     public int gridSize = 3;                // ie. 3x3 grid 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {
@@ -34,6 +36,9 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        int[] tumblerValues = { 0, 1, 2, 3 };
+        System.Random rnd = new System.Random();
+
         foreach (var lvl in levels)
         {
             Vector2 start;
@@ -42,6 +47,9 @@ public class LevelManager : MonoBehaviour
             lvl.solutionPath = GenerateLvlSolution(out start, out end);
             lvl.startPoint = start;
             lvl.endPoint = end;
+
+            var vals = Enumerable.Range(0, 4).OrderBy(r => rnd.Next()).ToArray();
+            lvl.lockSolution = vals;
         }
     }
 
@@ -52,15 +60,25 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-        else if(Input.GetKeyDown(KeyCode.L))
+        else if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             lvlIndex = 0;
             SceneManager.LoadScene(1);
         }
-        else if (Input.GetKeyDown(KeyCode.K))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             lvlIndex = 1;
             SceneManager.LoadScene(1);
+        }
+        else if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            lvlIndex = 0;
+            SceneManager.LoadScene(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            lvlIndex = 1;
+            SceneManager.LoadScene(2);
         }
     }
 

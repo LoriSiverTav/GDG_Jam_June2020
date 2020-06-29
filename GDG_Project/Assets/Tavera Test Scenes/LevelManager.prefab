@@ -46,11 +46,15 @@ MonoBehaviour:
   levels:
   - startPoint: {x: 0, y: 0}
     endPoint: {x: 0, y: 0}
+    lockSolution: 
   - startPoint: {x: 0, y: 0}
     endPoint: {x: 0, y: 0}
+    lockSolution: 
   - startPoint: {x: 0, y: 0}
     endPoint: {x: 0, y: 0}
+    lockSolution: 
   - startPoint: {x: 0, y: 0}
     endPoint: {x: 0, y: 0}
+    lockSolution: 
   lvlIndex: 0
   gridSize: 3

@@ -7,13 +7,13 @@ public class PlayerMovement : MonoBehaviour
     public BoxCollider2D playerCollider;
     public Rigidbody2D playerRB;
     public float walkSpeed = 4;
-    public bool isPuzzling = false;                      //affects if the movement or puzzle controls activate
+    public static bool isPuzzling = false;                      //affects if the movement or puzzle controls activate
 
     void Awake()
     {
+        playerRB = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
-        playerCollider = transform.GetComponent<BoxCollider2D>();
-        playerRB = transform.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
         //if has trying to move
         if (Input.anyKey)
         {
+            playerRB.velocity = new Vector2(0, 0);      // New Line
+
             //up and down controls
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
