@@ -24,7 +24,10 @@ public class LockPicking : MonoBehaviour
             levelLock.ResetLock();
         }
         
-        lockpickCanvas.enabled = PlayerMovement.isPuzzling;
+        if(lockpickCanvas)
+        {
+            lockpickCanvas.enabled = PlayerMovement.isPuzzling;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
