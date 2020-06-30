@@ -13,6 +13,7 @@ public class LevelSol
     public Vector2 startPoint;              // Hold a reference to the starting room of the level
     public Vector2 endPoint;                // Hold a reference to the end room of the level
     public int[] lockSolution;
+    public bool isComplete = false;         // TODO Render the treasure piece if is not complete
 }
 
 public class LevelManager : MonoBehaviour
