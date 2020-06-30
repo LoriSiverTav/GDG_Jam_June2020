@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isPuzzling = !isPuzzling;
         }
-      
     }
 
     void FixedUpdate()
@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
-
     }
 
     public void Move()
@@ -72,8 +71,5 @@ public class PlayerMovement : MonoBehaviour
        {
             playerRB.velocity = new Vector2(0, 0);
        }
-
-
     }
-
 }

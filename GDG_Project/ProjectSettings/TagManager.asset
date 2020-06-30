@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EmptyRoom
   - Tumbler
+  - Chest
   layers:
   - Default
   - TransparentFX

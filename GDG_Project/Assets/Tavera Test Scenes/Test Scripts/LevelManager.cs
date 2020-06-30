@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
     public LevelSol[] levels;
     public static LevelManager instance;
     public int lvlIndex;                    // Lets the level manager know what solution path to render
-    public int gridSize = 3;                // ie. 3x3 grid 
+    public int gridSize = 3;                // ie. 3x3 grid
 
     // Start is called before the first frame update
     void Awake()
@@ -65,20 +65,10 @@ public class LevelManager : MonoBehaviour
             lvlIndex = 0;
             SceneManager.LoadScene(1);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             lvlIndex = 1;
             SceneManager.LoadScene(1);
-        }
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            lvlIndex = 0;
-            SceneManager.LoadScene(2);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            lvlIndex = 1;
-            SceneManager.LoadScene(2);
         }
     }
 

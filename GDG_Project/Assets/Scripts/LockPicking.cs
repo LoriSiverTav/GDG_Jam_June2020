@@ -5,30 +5,41 @@ using UnityEngine.UI;
 
 public class LockPicking : MonoBehaviour
 {
-    public bool isPuzzling = true;
-    
+    public Canvas lockpickCanvas;
+    public UILock levelLock;
+    public bool canOpenUI = false;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        levelLock = GameObject.Find("Lock").GetComponent<UILock>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isPuzzling)
+        if(canOpenUI && Input.GetKeyDown(KeyCode.E) && !levelLock.isUnlocked)
         {
+            PlayerMovement.isPuzzling = !PlayerMovement.isPuzzling;
+            levelLock.ResetLock();
+        }
+        
+        lockpickCanvas.enabled = PlayerMovement.isPuzzling;
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Chest")
+        {
+            canOpenUI = true;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Tumbler")
+        if (collision.gameObject.tag == "Chest")
         {
-            var lockParentComp = collision.gameObject.transform.parent.GetComponent<Lock>();
-
-            lockParentComp.UpdateTumbler(collision.gameObject);
+            canOpenUI = false;
         }
     }
 }
