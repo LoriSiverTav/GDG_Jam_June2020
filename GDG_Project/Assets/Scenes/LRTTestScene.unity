@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &131296068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4979943867221840196, guid: 1ad152aab6c4a6647a758664f73278b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4706873416082748341}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3191918cb06675347ba0e4b73cececca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &349938765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8815665748105868690, guid: 3f46ea7bea378894b9b0bade84831480,
@@ -224,6 +236,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4706873416714577880, guid: 1ad152aab6c4a6647a758664f73278b6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4706873416917604848, guid: 1ad152aab6c4a6647a758664f73278b6,
         type: 3}
       propertyPath: m_Name
@@ -288,6 +305,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 131296068}
+    - target: {fileID: 4706873416952545958, guid: 1ad152aab6c4a6647a758664f73278b6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706873416952545959, guid: 1ad152aab6c4a6647a758664f73278b6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -308
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706873417420377713, guid: 1ad152aab6c4a6647a758664f73278b6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4706873417514113461, guid: 1ad152aab6c4a6647a758664f73278b6,
         type: 3}
@@ -323,6 +355,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 131296068}
+    - target: {fileID: 4706873417791381425, guid: 1ad152aab6c4a6647a758664f73278b6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706873417791381430, guid: 1ad152aab6c4a6647a758664f73278b6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -446.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706873417791381430, guid: 1ad152aab6c4a6647a758664f73278b6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -308
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706873417791381430, guid: 1ad152aab6c4a6647a758664f73278b6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706873417791381430, guid: 1ad152aab6c4a6647a758664f73278b6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706873417791381430, guid: 1ad152aab6c4a6647a758664f73278b6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ad152aab6c4a6647a758664f73278b6, type: 3}
