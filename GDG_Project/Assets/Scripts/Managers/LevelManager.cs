@@ -59,17 +59,17 @@ public class LevelManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         else if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             lvlIndex = 0;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             lvlIndex = 1;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 
