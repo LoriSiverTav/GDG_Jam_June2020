@@ -14,7 +14,7 @@ public class TreasureDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
+        playerInventory = GameObject.Find("tempPlayer").GetComponent<Inventory>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         if(!spriteRenderer) { return; }

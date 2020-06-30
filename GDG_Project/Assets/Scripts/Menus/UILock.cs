@@ -24,7 +24,6 @@ public class UILock : MonoBehaviour
     public LockTumbler[] tumblers;
     public Image lockPick;
     public List<int> playerInput;
-    public bool isUnlocked = false;
     public int tries = 3;
     public float lerpSpeed;
 
@@ -61,7 +60,10 @@ public class UILock : MonoBehaviour
         ResetTumblerColors();
 
         // Only use the lockpicking controls when IsPuzzling and when the door is locked
-        if (!PlayerMovement.isPuzzling || isUnlocked) { return; }
+        if (!PlayerMovement.isPuzzling || LevelManager.instance.levels[LevelManager.instance.lvlIndex].isComplete) 
+        { 
+            return; 
+        }
 
         // Move the lockpick to the right
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
@@ -194,7 +196,7 @@ public class UILock : MonoBehaviour
             if (IsLockIsComplete())
             {
                 Debug.Log("Lock is Unlocked");
-                isUnlocked = true;
+                LevelManager.instance.levels[LevelManager.instance.lvlIndex].isComplete = true;
                 PlayerMovement.isPuzzling = false;
             }
             else

@@ -11,6 +11,12 @@ public class TestLvlGen : MonoBehaviour
     public GameObject[] roomTypes;
     public int lvlIndex;
     public GameObject chest;
+    
+    public GameObject doorPrefab;
+    public Vector3 startDoorOffset;
+    public Vector3 exitDoorOffset;
+
+    private GameObject exitDoor = null;
 
     // Start is called before the first frame update
     void Start()
@@ -42,16 +48,31 @@ public class TestLvlGen : MonoBehaviour
                 break;
         }
 
-        var newChest = Instantiate(chest, row[(int)levelData.endPoint.y].position, Quaternion.Euler(0,0,0));
-
         // Draw filler rooms
+
+
         // Add chest and doors at the start and end points
+        GameObject entranceDoor = Instantiate(doorPrefab,
+            rowSpawners0[(int)levelData.startPoint.y].position + startDoorOffset,
+            Quaternion.Euler(0,0,0));
+
+        exitDoor = Instantiate(doorPrefab,
+            row[(int)levelData.endPoint.y].position + exitDoorOffset,
+            Quaternion.Euler(0, 0, 0));
+
+        entranceDoor.GetComponent<DoorComp>().sceneIdxToGo = 1;
+        exitDoor.GetComponent<DoorComp>().sceneIdxToGo = 1;
+
+        GameObject newChest = Instantiate(chest, row[(int)levelData.endPoint.y].position, Quaternion.Euler(0,0,0));
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(exitDoor)
+        {
+            exitDoor.SetActive(LevelManager.instance.levels[LevelManager.instance.lvlIndex].isComplete);
+        }
     }
 
     private void AddRoom(int row, int col, int room)

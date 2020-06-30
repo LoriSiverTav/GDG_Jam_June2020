@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 8815665748105868689}
   - component: {fileID: 8815665748105868693}
   - component: {fileID: -8125922740926386786}
+  - component: {fileID: -7321141511115261753}
   m_Layer: 0
   m_Name: tempPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,4 +161,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac43093f5f611e4880f9979af718331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPuzzling: 1
+  lockpickCanvas: {fileID: 0}
+  levelLock: {fileID: 0}
+  canOpenUI: 0
+--- !u!114 &-7321141511115261753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815665748105868694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48afc526ca7b9c42942a530b562a4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventorySize: 0
+  treasurePieces: []

@@ -12,13 +12,16 @@ public class LockPicking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelLock = GameObject.Find("Lock").GetComponent<UILock>();
+        if(GameObject.Find("Lock"))
+        {
+            levelLock = GameObject.Find("Lock").GetComponent<UILock>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(canOpenUI && Input.GetKeyDown(KeyCode.E) && !levelLock.isUnlocked)
+        if(canOpenUI && Input.GetKeyDown(KeyCode.E) && !LevelManager.instance.levels[LevelManager.instance.lvlIndex].isComplete)
         {
             PlayerMovement.isPuzzling = !PlayerMovement.isPuzzling;
             levelLock.ResetLock();
