@@ -13,6 +13,7 @@ public class PauseManager : MonoBehaviour
     public Canvas PauseCanvas;
     public Canvas ControlsCanvas;
     public Canvas InventoryCanvas;
+    public Canvas DoubleCheckCanvas;
 
     void Start()
     {
@@ -53,6 +54,7 @@ public class PauseManager : MonoBehaviour
         PauseCanvas.enabled = false;
         ControlsCanvas.enabled = false;
         InventoryCanvas.enabled = false;
+        DoubleCheckCanvas.enabled = false;
     }
 
     //Stops Time scale
@@ -79,6 +81,13 @@ public class PauseManager : MonoBehaviour
         PauseCanvas.enabled = true;
         ControlsCanvas.enabled = false;
         InventoryCanvas.enabled = false;
+        DoubleCheckCanvas.enabled = false;
+    }
+
+    public void ExitCheck()
+    {
+        PauseCanvas.enabled = false;
+        DoubleCheckCanvas.enabled = true;
     }
 
     public void ExitButtonPressed()
