@@ -1447,10 +1447,10 @@ MonoBehaviour:
     value: 0
     initialLoc: {x: 0, y: 0, z: 0}
   lockPick: {fileID: 1571799423}
-  solution: 
   playerInput: 
   isUnlocked: 0
-  tries: 3
+  tries: 8
+  lerpSpeed: 2
 --- !u!114 &1459371417
 MonoBehaviour:
   m_ObjectHideFlags: 0
