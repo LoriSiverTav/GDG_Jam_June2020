@@ -9,8 +9,10 @@ public class TestLvlGen : MonoBehaviour
     public Transform[] rowSpawners2;
     public Transform[] rowSpawners3;
     public GameObject[] roomTypes;
+
     public int lvlIndex;
     public GameObject chest;
+    public bool bFillEmptyRooms = true;
     
     public GameObject doorPrefab;
     public Vector3 startDoorOffset;
@@ -49,7 +51,7 @@ public class TestLvlGen : MonoBehaviour
         }
 
         // Draw filler rooms
-
+        FillEmptyRooms(levelData.solutionPath);
 
         // Add chest and doors at the start and end points
         GameObject entranceDoor = Instantiate(doorPrefab,
@@ -109,6 +111,23 @@ public class TestLvlGen : MonoBehaviour
             {
                 if(solutionPath[i,j] != -1)
                     AddRoom(i, j, solutionPath[i, j]);
+            }
+        }
+    }
+
+    private void FillEmptyRooms(int[,] solutionPath)
+    {
+        if(!bFillEmptyRooms) { return; }
+
+        for (int i = 0; i < LevelManager.instance.gridSize; i++)
+        {
+            for (int j = 0; j < LevelManager.instance.gridSize; j++)
+            {
+                if (solutionPath[i, j] == -1)
+                {
+                    var rndEmptyRoom = Random.Range(0, 2);
+                    AddRoom(i, j, rndEmptyRoom);
+                }
             }
         }
     }

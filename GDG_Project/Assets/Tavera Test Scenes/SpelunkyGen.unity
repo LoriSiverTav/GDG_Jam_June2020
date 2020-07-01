@@ -741,6 +741,7 @@ MonoBehaviour:
   - {fileID: 2778948877832087570, guid: 718075ad7fcc13847becbaa261d4491a, type: 3}
   lvlIndex: 1
   chest: {fileID: 1939442447398519353, guid: a94c942bcf949ef4aa61e7e3914896b1, type: 3}
+  bFillEmptyRooms: 1
   doorPrefab: {fileID: 6103171495030990399, guid: bae266c44b7352d4aae48eab7367f413,
     type: 3}
   startDoorOffset: {x: 0, y: 1.4, z: 0}
