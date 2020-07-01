@@ -1413,6 +1413,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1514021936601865665, guid: ca32551da966c4944993f6ec5ab36a9f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1514021936601865666, guid: ca32551da966c4944993f6ec5ab36a9f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1522,6 +1527,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LockpickCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514021936601865678, guid: ca32551da966c4944993f6ec5ab36a9f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514021938496657401, guid: ca32551da966c4944993f6ec5ab36a9f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca32551da966c4944993f6ec5ab36a9f, type: 3}
