@@ -8,7 +8,6 @@ public class DoorComp : MonoBehaviour
     public int sceneIdxToGo = 1;
     public int levelDataIndex = 0;
     public bool isFinalLevel = false;
-    public int inventorySize = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +26,11 @@ public class DoorComp : MonoBehaviour
 
         if(collision.gameObject.tag == "Player")
         {
-            if(isFinalLevel && inventorySize != LevelManager.instance.levels.Length)
+            if(isFinalLevel && InventoryManager.instance.treasurePieces.Count != LevelManager.instance.levels.Length)
             {
-                Debug.Log("Inventory (" + inventorySize + ") is not complete. Need: " + LevelManager.instance.levels.Length);
+                Debug.Log("Inventory (" + InventoryManager.instance.treasurePieces.Count
+                    + ") is not complete. Need: " + LevelManager.instance.levels.Length);
+
                 return;
             }
 

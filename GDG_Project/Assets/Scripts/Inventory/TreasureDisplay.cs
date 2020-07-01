@@ -6,15 +6,12 @@ public class TreasureDisplay : MonoBehaviour
 {
     public Item_ScptObj item;
     public Color spriteColor;
-    public KeyCode pickupKey;
 
-    public Inventory playerInventory;
     private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerInventory = GameObject.Find("tempPlayer").GetComponent<Inventory>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         if(!spriteRenderer) { return; }
@@ -27,10 +24,17 @@ public class TreasureDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(pickupKey) && playerInventory)
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player" && InventoryManager.instance)
         {
-            if (playerInventory.CanAddToInventory(item))
+            if (InventoryManager.instance.CanAddToInventory(item))
+            {
                 Destroy(gameObject);
+            }
         }
     }
 }
