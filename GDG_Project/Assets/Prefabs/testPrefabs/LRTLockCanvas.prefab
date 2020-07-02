@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 43b4e081bdfcdcc4682f9423fb3d111a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6051815929580252526}
   - component: {fileID: 6051815929580252513}
   m_Layer: 5
-  m_Name: LockCanvas
+  m_Name: LRTLockCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 43b4e081bdfcdcc4682f9423fb3d111a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -416,7 +416,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 43b4e081bdfcdcc4682f9423fb3d111a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -490,7 +490,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 43b4e081bdfcdcc4682f9423fb3d111a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -564,7 +564,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 91d03545ec8c59f4fa63da710278e4b0, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -644,7 +644,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 47ade9a55fae82241967c6864540b0b3, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -664,6 +664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9f2df75329c0f47a108077f8ec98e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathCanvas: {fileID: 0}
+  timerReset: 2
   tumblers:
   - tumbler: {fileID: 6051815930076272063}
     isPushed: 0
@@ -677,7 +679,7 @@ MonoBehaviour:
     isPushed: 0
     value: 0
     initialLoc: {x: 0, y: 0, z: 0}
-  - tumbler: {fileID: 6051815929972902349}
+  - tumbler: {fileID: 0}
     isPushed: 0
     value: 0
     initialLoc: {x: 0, y: 0, z: 0}
@@ -685,7 +687,7 @@ MonoBehaviour:
   playerInput: 
   tries: 3
   lerpSpeed: 2
-  tumblerPushHeight: 15
+  tumblerPushHeight: 30
 --- !u!1 &6051815930866950390
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +723,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3.2, y: 17.2}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6051815930866950389
 CanvasRenderer:
@@ -752,7 +754,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: c20891c617562b145934a66c963a4d30, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

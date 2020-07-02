@@ -29,7 +29,7 @@ public class UILock : MonoBehaviour
     public List<int> playerInput;
     public int tries = 3;
     public float lerpSpeed;
-    public float tumblerPushHeight = 100;
+    public float tumblerPushHeight = 15;
 
     private float deathScreenTimer;
 

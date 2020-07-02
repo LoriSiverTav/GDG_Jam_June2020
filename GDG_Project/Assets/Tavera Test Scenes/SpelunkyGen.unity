@@ -1463,7 +1463,7 @@ PrefabInstance:
     - target: {fileID: 6051815929580252527, guid: 86677c038154a1446bff53d666c93eb8,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6051815929800230858, guid: 86677c038154a1446bff53d666c93eb8,
         type: 3}
@@ -1490,11 +1490,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 128
       objectReference: {fileID: 0}
-    - target: {fileID: 6051815929972902349, guid: 86677c038154a1446bff53d666c93eb8,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6051815930076272062, guid: 86677c038154a1446bff53d666c93eb8,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1510,11 +1505,6 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6051815930723150058, guid: 86677c038154a1446bff53d666c93eb8,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6051815930723150061, guid: 86677c038154a1446bff53d666c93eb8,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1525,11 +1515,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 128
       objectReference: {fileID: 0}
-    - target: {fileID: 6051815930866950388, guid: 86677c038154a1446bff53d666c93eb8,
+    - target: {fileID: 6051815930746864036, guid: 86677c038154a1446bff53d666c93eb8,
         type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
+      propertyPath: tumblerPushHeight
+      value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6051815930746864036, guid: 86677c038154a1446bff53d666c93eb8,
+        type: 3}
+      propertyPath: tumblers.Array.data[3].tumbler
+      value: 
+      objectReference: {fileID: 2088186282}
     - target: {fileID: 6051815930866950391, guid: 86677c038154a1446bff53d666c93eb8,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1637,3 +1632,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f46ea7bea378894b9b0bade84831480, type: 3}
+--- !u!114 &2088186282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6051815929972902349, guid: 86677c038154a1446bff53d666c93eb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1976500596}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
