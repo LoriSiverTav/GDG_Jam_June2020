@@ -803,11 +803,11 @@ MonoBehaviour:
   - {fileID: 1790029043}
   - {fileID: 1687544039}
   roomTypes:
-  - {fileID: 66292863379465212, guid: 33a032d9c20f4c949a8ddeddb7f30684, type: 3}
-  - {fileID: 8500922778402700027, guid: 592cdfe69b6f5854bb05dd758632a7c7, type: 3}
-  - {fileID: 5901060955968335857, guid: a3c12ff6cb5d63a42bd8fd00bd50a95a, type: 3}
-  - {fileID: 4920230928871775933, guid: 49688c20d19aa3840b64a70e5e3b1bae, type: 3}
-  - {fileID: 2778948877832087570, guid: 718075ad7fcc13847becbaa261d4491a, type: 3}
+  - {fileID: 2370604865645573405, guid: a225dddec129cc54389d20a55f661a20, type: 3}
+  - {fileID: 5182685194341604830, guid: 32c0c5b2868a0634ba70529d99801a67, type: 3}
+  - {fileID: 7433434692720638701, guid: 47bf52e6c0716dd43b98df3f4c701d0f, type: 3}
+  - {fileID: 3715920111205806824, guid: 728264d4d4392354b94392a26ec68a86, type: 3}
+  - {fileID: 5436170502575508347, guid: 31d6291c70104f14b94545bf2a5c3117, type: 3}
   lvlIndex: 1
   chest: {fileID: 1939442447398519353, guid: a94c942bcf949ef4aa61e7e3914896b1, type: 3}
   bFillEmptyRooms: 1
@@ -1463,7 +1463,7 @@ PrefabInstance:
     - target: {fileID: 6051815929580252527, guid: 86677c038154a1446bff53d666c93eb8,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6051815929800230858, guid: 86677c038154a1446bff53d666c93eb8,
         type: 3}
