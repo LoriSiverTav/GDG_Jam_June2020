@@ -743,9 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9f2df75329c0f47a108077f8ec98e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathCanvas: {fileID: 0}
-  timerReset: 2
-  tryText: {fileID: 0}
+  tryText: {fileID: 111752141990144216}
   tumblers:
   - tumbler: {fileID: 6051815930076272063}
     isPushed: 0
@@ -759,7 +757,7 @@ MonoBehaviour:
     isPushed: 0
     value: 0
     initialLoc: {x: 0, y: 0, z: 0}
-  - tumbler: {fileID: 0}
+  - tumbler: {fileID: 6051815929972902349}
     isPushed: 0
     value: 0
     initialLoc: {x: 0, y: 0, z: 0}
