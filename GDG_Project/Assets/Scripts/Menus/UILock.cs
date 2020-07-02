@@ -210,7 +210,8 @@ public class UILock : MonoBehaviour
             {
                 tries--;
                 setTryText();
-
+                Debug.Log("*Lock Click");
+                
                 if (tries <= 0)
                 {
                     Debug.Log("Player dead");
