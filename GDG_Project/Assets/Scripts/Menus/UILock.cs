@@ -21,8 +21,8 @@ public class LockTumbler
 
 public class UILock : MonoBehaviour
 {
-    public Canvas DeathCanvas;
-    public float timerReset = 2f;
+   
+    public Text tryText;
 
     public LockTumbler[] tumblers;
     public Image lockPick;
@@ -31,15 +31,13 @@ public class UILock : MonoBehaviour
     public float lerpSpeed;
     public float tumblerPushHeight = 15;
 
-    private float deathScreenTimer;
-
     private int[] lockSolution;
     private int targetTumbler = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        deathScreenTimer = timerReset;
+       
 
         // Get lock solution of the level
         LevelSol levelData = LevelManager.instance.GetLevelData();
@@ -97,6 +95,7 @@ public class UILock : MonoBehaviour
         }
         
         CheckSolution();
+
     }
 
     public void ResetLock()
@@ -210,13 +209,13 @@ public class UILock : MonoBehaviour
             else
             {
                 tries--;
+                setTryText();
 
                 if (tries <= 0)
                 {
                     Debug.Log("Player dead");
                     PlayerMovement.isPuzzling = false;
-                    DeathSequence();
-                    SceneManager.LoadScene(2);
+                    DeathScreen.userTries = 0;
                 }
             }
 
@@ -224,18 +223,8 @@ public class UILock : MonoBehaviour
         }
     }
 
-    //pulls up a a fail screen for a few seconds 
-    public void DeathSequence()
+    public void setTryText()
     {
-        DeathCanvas.enabled = true;
-
-        deathScreenTimer -= Time.deltaTime;
-
-        if (deathScreenTimer <= 0)
-        {
-            DeathCanvas.enabled = false;
-            deathScreenTimer = timerReset;
-            return;
-        }
+        tryText.text = "Number of tries: " + tries;
     }
 }
