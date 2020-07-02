@@ -26,6 +26,7 @@ public class UILock : MonoBehaviour
     public List<int> playerInput;
     public int tries = 3;
     public float lerpSpeed;
+    public float tumblerPushHeight = 100;
 
     private int[] lockSolution;
     private int targetTumbler = 0;
@@ -49,7 +50,7 @@ public class UILock : MonoBehaviour
         // Position the lockpick underneath the first tumbler
         lockPick.gameObject.transform.position = new Vector3(
             tumblers[targetTumbler].tumbler.gameObject.transform.position.x,
-            tumblers[targetTumbler].tumbler.gameObject.transform.position.y - 60,
+            tumblers[targetTumbler].tumbler.gameObject.transform.position.y - 30,
             0);
     }
 
@@ -107,7 +108,7 @@ public class UILock : MonoBehaviour
         lockPick.gameObject.transform.position =
             new Vector3(
                 tumblers[targetTumbler].tumbler.gameObject.transform.position.x,
-                tumblers[targetTumbler].tumbler.gameObject.transform.position.y - 60,
+                tumblers[targetTumbler].tumbler.gameObject.transform.position.y - 30,
                 0);
 
         playerInput.Clear();
@@ -144,14 +145,14 @@ public class UILock : MonoBehaviour
         lockPick.gameObject.transform.position =
         new Vector3(
             lockPick.gameObject.transform.position.x,
-            tumblers[targetTumbler].tumbler.gameObject.transform.position.y - 30,
+            tumblers[targetTumbler].tumbler.gameObject.transform.position.y - 20,
             0);
 
         // Move the tumbler upwards
         tumblerSol.tumbler.transform.localPosition =
         new Vector3(
             tumblerSol.tumbler.gameObject.transform.localPosition.x,
-            -25f,
+            tumblerPushHeight,
             tumblerSol.tumbler.gameObject.transform.localPosition.z);
 
         // Update the player input list and tumbler status
@@ -185,7 +186,7 @@ public class UILock : MonoBehaviour
         lockPick.gameObject.transform.position =
         new Vector3(
             tumblers[targetTumbler].tumbler.gameObject.transform.position.x,
-            tumblers[targetTumbler].tumbler.gameObject.transform.position.y - 60,
+            tumblers[targetTumbler].tumbler.gameObject.transform.position.y - 30,
             0);
     }
 
@@ -207,7 +208,7 @@ public class UILock : MonoBehaviour
                 {
                     Debug.Log("Player dead");
                     PlayerMovement.isPuzzling = false;
-                    SceneManager.LoadScene(1);
+                    SceneManager.LoadScene(2);
                 }
             }
 
