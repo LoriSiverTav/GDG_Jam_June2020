@@ -47,6 +47,7 @@ public class DeathScreen : MonoBehaviour
         userTries = 3;
         timerCheck = false;
         DeathCanvas.enabled = false;
+        PlayerMovement.isPuzzling = false;
         SceneManager.LoadScene(2);
     }
 }

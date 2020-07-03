@@ -36,7 +36,7 @@ public class LockPicking : MonoBehaviour
 
         if (lockpickCanvas)
         {
-            lockpickCanvas.enabled = PlayerMovement.isPuzzling;
+            lockpickCanvas.enabled = PlayerMovement.isPuzzling && DeathScreen.userTries > 0;
         }
         
         if (finalDialCanvas)

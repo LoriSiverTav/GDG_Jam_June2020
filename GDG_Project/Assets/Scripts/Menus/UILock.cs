@@ -210,9 +210,6 @@ public class UILock : MonoBehaviour
 
                 if (tries <= 0)
                 {
-                    Debug.Log("Player dead");
-                    PlayerMovement.isPuzzling = false;
-                    SceneManager.LoadScene(2);
                     DeathScreen.userTries = 0;
                 }
             }
