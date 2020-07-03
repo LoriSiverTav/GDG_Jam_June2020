@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffects: []
   backgroundSong:
-    audioClip: {fileID: 8300000, guid: 728e3d0dea8159347a9c3d3981aa749a, type: 3}
+    audioClip: {fileID: 8300000, guid: c47d2078ad9f2944ea9e7410ae08bfde, type: 3}
     loop: 1
     volume: 0.792
     audioSource: {fileID: 0}
