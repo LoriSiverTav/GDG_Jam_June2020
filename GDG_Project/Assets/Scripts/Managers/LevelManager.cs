@@ -15,6 +15,7 @@ public class LevelSol
     public Vector2 endPoint;                // Hold a reference to the end room of the level
     public int[] lockSolution;
     public bool isComplete = false;         // TODO Render the treasure piece if is not complete
+    public Item_ScptObj treasurePiece;
 }
 
 [Serializable]
@@ -71,6 +72,7 @@ public class LevelManager : MonoBehaviour
         }
 
         finalSolution.finalSolutionCombo = GenerateFinalSolution();
+
         foreach (var x in finalSolution.finalSolutionCombo)
         {
             Shape shape = finalSolution.allShapes.FirstOrDefault(y => y.value == x);

@@ -47,6 +47,6 @@ MonoBehaviour:
   backgroundSong:
     audioClip: {fileID: 8300000, guid: 728e3d0dea8159347a9c3d3981aa749a, type: 3}
     loop: 1
-    volume: 0.792
+    volume: 0.088
     audioSource: {fileID: 0}
     pauseVolume: 0.65
