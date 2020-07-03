@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -16,9 +17,26 @@ public class LevelSol
     public bool isComplete = false;         // TODO Render the treasure piece if is not complete
 }
 
+[Serializable]
+public class Shape
+{
+    public string shapeName;
+    public int value;
+    public Image shapeImage;
+}
+
+[Serializable]
+public class FinalSol
+{
+    public Shape[] allShapes;
+    public int[] finalSolutionCombo;
+    public bool isSolved = false;
+}
+
 public class LevelManager : MonoBehaviour
 {
     public LevelSol[] levels;
+    public FinalSol finalSolution;
     public static LevelManager instance;
     public int lvlIndex;                    // Lets the level manager know what solution path to render
     public int gridSize = 3;                // ie. 3x3 grid
@@ -37,7 +55,6 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        int[] tumblerValues = { 0, 1, 2, 3 };
         System.Random rnd = new System.Random();
 
         foreach (var lvl in levels)
@@ -51,6 +68,13 @@ public class LevelManager : MonoBehaviour
 
             var vals = Enumerable.Range(0, 4).OrderBy(r => rnd.Next()).ToArray();
             lvl.lockSolution = vals;
+        }
+
+        finalSolution.finalSolutionCombo = GenerateFinalSolution();
+        foreach (var x in finalSolution.finalSolutionCombo)
+        {
+            Shape shape = finalSolution.allShapes.FirstOrDefault(y => y.value == x);
+            Debug.Log(shape.shapeName);
         }
     }
 
@@ -161,5 +185,13 @@ public class LevelManager : MonoBehaviour
     public LevelSol GetLevelData()
     {
         return levels[lvlIndex];
+    }
+
+    public int[] GenerateFinalSolution()
+    {
+        System.Random rnd = new System.Random();
+        int[] solutionCombo = Enumerable.Range(0, 4).OrderBy(r => rnd.Next()).ToArray();
+
+        return solutionCombo;
     }
 }

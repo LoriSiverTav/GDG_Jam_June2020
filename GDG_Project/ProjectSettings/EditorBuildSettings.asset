@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tavera Test Scenes/SpelunkyGen.unity
     guid: 8eaad383ef119c140abe927f01356324
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: b78ea5212a322d3498b7145e751c2d75
   m_configObjects: {}

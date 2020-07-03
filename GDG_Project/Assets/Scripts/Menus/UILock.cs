@@ -21,7 +21,6 @@ public class LockTumbler
 
 public class UILock : MonoBehaviour
 {
-   
     public Text tryText;
 
     public LockTumbler[] tumblers;
@@ -37,8 +36,6 @@ public class UILock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-
         // Get lock solution of the level
         LevelSol levelData = LevelManager.instance.GetLevelData();
         lockSolution = levelData.lockSolution;
@@ -95,7 +92,6 @@ public class UILock : MonoBehaviour
         }
         
         CheckSolution();
-
     }
 
     public void ResetLock()

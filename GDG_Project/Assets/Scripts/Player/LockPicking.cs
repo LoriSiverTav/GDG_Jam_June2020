@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class LockPicking : MonoBehaviour
 {
     public Canvas lockpickCanvas;
+    public Canvas finalDialCanvas;
     public UILock levelLock;
     public bool canOpenUI = false;
+    public bool canOpenFinalUI = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +28,19 @@ public class LockPicking : MonoBehaviour
             PlayerMovement.isPuzzling = !PlayerMovement.isPuzzling;
             levelLock.ResetLock();
         }
-        
-        if(lockpickCanvas)
+        else if(canOpenFinalUI && Input.GetKeyDown(KeyCode.E) && !LevelManager.instance.finalSolution.isSolved)
+        {
+            PlayerMovement.isPuzzling = !PlayerMovement.isPuzzling;
+        }
+
+        if (lockpickCanvas)
         {
             lockpickCanvas.enabled = PlayerMovement.isPuzzling;
+        }
+        
+        if (finalDialCanvas)
+        {
+            finalDialCanvas.enabled = PlayerMovement.isPuzzling;
         }
     }
 
@@ -39,6 +50,10 @@ public class LockPicking : MonoBehaviour
         {
             canOpenUI = true;
         }
+        else if(collision.gameObject.tag == "FinalChest")
+        {
+            canOpenFinalUI = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -46,6 +61,10 @@ public class LockPicking : MonoBehaviour
         if (collision.gameObject.tag == "Chest")
         {
             canOpenUI = false;
+        }
+        else if (collision.gameObject.tag == "FinalChest")
+        {
+            canOpenFinalUI = false;
         }
     }
 }
