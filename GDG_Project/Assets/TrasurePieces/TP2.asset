@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72f12e744484a2345bc782b3235ee4a1, type: 3}
-  m_Name: TP1
+  m_Name: TP2
   m_EditorClassIdentifier: 
-  itemName: Treasure Piece 1
-  itemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  itemName: Treasure Piece 2
+  itemSprite: {fileID: 21300000, guid: c20891c617562b145934a66c963a4d30, type: 3}

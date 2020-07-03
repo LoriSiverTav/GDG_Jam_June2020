@@ -48,4 +48,9 @@ public class InventoryManager : MonoBehaviour
         instance.treasurePieces.Add(newItem);
         return true;
     }
+
+    public void UpdateInventoryUI()
+    {
+
+    }
 }

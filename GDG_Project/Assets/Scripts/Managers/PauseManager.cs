@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -13,6 +14,8 @@ public class PauseManager : MonoBehaviour
     public Canvas ControlsCanvas;
     public Canvas InventoryCanvas;
     public Canvas DoubleCheckCanvas;
+
+    public GameObject[] inventorySlots;
 
     void Start()
     {
@@ -65,6 +68,7 @@ public class PauseManager : MonoBehaviour
 
     public void InventoryButtonPressed()
     {
+        UpdateInventorySlots();
         PauseCanvas.enabled = false;
         InventoryCanvas.enabled = true;
     }
@@ -87,6 +91,19 @@ public class PauseManager : MonoBehaviour
     {
         PauseCanvas.enabled = false;
         DoubleCheckCanvas.enabled = true;
+    }
+
+    public void UpdateInventorySlots()
+    {
+        if(!InventoryManager.instance) { return; }
+
+        for(int i = 0; i < InventoryManager.instance.treasurePieces.Count; i++)
+        {
+            Debug.Log(i);
+            if(!InventoryManager.instance.treasurePieces[i].itemSprite || i >= inventorySlots.Length) { return; }
+
+            inventorySlots[i].GetComponent<Image>().sprite = InventoryManager.instance.treasurePieces[i].itemSprite;
+        }
     }
 
     public void ExitButtonPressed()
