@@ -33,6 +33,11 @@ public class LockPicking : MonoBehaviour
         {
             PlayerMovement.isPuzzling = !PlayerMovement.isPuzzling;
         }
+        else if(canOpenFinalUI && Input.GetKeyDown(KeyCode.E) && !LevelManager.instance.finalSolution.isSolved && InventoryManager.instance.treasurePieces.Count != 4)
+        {
+            PauseManager.instance.PauseGame();
+            PauseManager.instance.InventoryButtonPressed();
+        }
 
         if (lockpickCanvas)
         {

@@ -765,7 +765,7 @@ MonoBehaviour:
   playerInput: 
   tries: 3
   lerpSpeed: 2
-  tumblerPushHeight: 30
+  tumblerPushHeight: 15
 --- !u!1 &6051815930866950390
 GameObject:
   m_ObjectHideFlags: 0
