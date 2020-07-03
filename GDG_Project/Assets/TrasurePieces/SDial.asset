@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f12e744484a2345bc782b3235ee4a1, type: 3}
   m_Name: SDial
   m_EditorClassIdentifier: 
-  itemName: 
-  itemSprite: {fileID: 0}
+  itemName: Spades
+  itemSprite: {fileID: 21300000, guid: bd70d60f220ab4443b31e5071332daf0, type: 3}
+  groundSymbolSprite: {fileID: 21300000, guid: 13e2d05ee3521534c8b9f29142e822ab, type: 3}

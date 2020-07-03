@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TestLvlGen : MonoBehaviour
@@ -17,14 +18,23 @@ public class TestLvlGen : MonoBehaviour
     public GameObject doorPrefab;
     public Vector3 startDoorOffset;
     public Vector3 exitDoorOffset;
+    public Vector3 treasureOffset;
+    public GameObject trasureDisplayerPrefab;
+    public GameObject symbolDisplayer;
+    public Item_ScptObj treasure = null;
 
+    private GameObject treasureDisplay = null;
     private GameObject exitDoor = null;
+    private GameObject newChest = null;
 
     // Start is called before the first frame update
     void Start()
     {
         LevelSol levelData = LevelManager.instance.GetLevelData();
         DrawRooms(levelData.solutionPath);
+        treasure = levelData.treasurePiece;
+
+        Debug.Log(levelData.treasurePiece.itemName);
 
         // Place the player on the starting point
         GameObject player = GameObject.Find("tempPlayer");
@@ -58,6 +68,10 @@ public class TestLvlGen : MonoBehaviour
             rowSpawners0[(int)levelData.startPoint.y].position + startDoorOffset,
             Quaternion.Euler(0,0,0));
 
+        GameObject symbol = Instantiate(symbolDisplayer, row[(int)levelData.endPoint.y].position, Quaternion.Euler(0, 0, 0));
+        symbol.GetComponent<SpriteRenderer>().sprite = treasure.groundSymbolSprite;
+        symbol.GetComponent<SpriteRenderer>().sortingOrder = 1;
+
         exitDoor = Instantiate(doorPrefab,
             row[(int)levelData.endPoint.y].position + exitDoorOffset,
             Quaternion.Euler(0, 0, 0));
@@ -65,7 +79,14 @@ public class TestLvlGen : MonoBehaviour
         entranceDoor.GetComponent<DoorComp>().sceneIdxToGo = 1;
         exitDoor.GetComponent<DoorComp>().sceneIdxToGo = 1;
 
-        GameObject newChest = Instantiate(chest, row[(int)levelData.endPoint.y].position, Quaternion.Euler(0,0,0));
+        newChest = Instantiate(chest, row[(int)levelData.endPoint.y].position, Quaternion.Euler(0,0,0));
+
+        treasureDisplay = Instantiate(trasureDisplayerPrefab, 
+            row[(int)levelData.endPoint.y].position + treasureOffset, 
+            Quaternion.Euler(0, 0, 0));
+        
+        treasureDisplay.GetComponent<TreasureDisplay>().item = treasure;
+        treasureDisplay.GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
 
     // Update is called once per frame
@@ -75,6 +96,11 @@ public class TestLvlGen : MonoBehaviour
         {
             exitDoor.SetActive(LevelManager.instance.levels[LevelManager.instance.lvlIndex].isComplete);
         }
+
+        newChest.SetActive(!LevelManager.instance.levels[LevelManager.instance.lvlIndex].isComplete);
+
+        if(!InventoryManager.instance.treasurePieces.Any(y => y.itemName == treasure.itemName))
+            treasureDisplay.SetActive(LevelManager.instance.levels[LevelManager.instance.lvlIndex].isComplete);
     }
 
     private void AddRoom(int row, int col, int room)

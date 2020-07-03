@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f12e744484a2345bc782b3235ee4a1, type: 3}
   m_Name: CDial
   m_EditorClassIdentifier: 
-  itemName: 
-  itemSprite: {fileID: 0}
+  itemName: Clubs
+  itemSprite: {fileID: 21300000, guid: 420fa7831995b9047b730055133338c3, type: 3}
+  groundSymbolSprite: {fileID: 21300000, guid: 0933f15063ba0dd41a02572eb13998e7, type: 3}

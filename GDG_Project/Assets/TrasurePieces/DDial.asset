@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f12e744484a2345bc782b3235ee4a1, type: 3}
   m_Name: DDial
   m_EditorClassIdentifier: 
-  itemName: 
-  itemSprite: {fileID: 0}
+  itemName: Diamonds
+  itemSprite: {fileID: 21300000, guid: cbcb67342a4fc8144be6cdca02f0d54b, type: 3}
+  groundSymbolSprite: {fileID: 21300000, guid: 6a88e39dbeca9944aa65b4756bef6720, type: 3}

@@ -31,26 +31,17 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log(instance.treasurePieces.Count);
-        }
+
     }
 
     public bool CanAddToInventory(Item_ScptObj newItem)
     {
         if (instance.treasurePieces.Count >= instance.InventorySize)
         {
-            Debug.LogError("Inventory Full");
             return false;
         }
 
         instance.treasurePieces.Add(newItem);
         return true;
-    }
-
-    public void UpdateInventoryUI()
-    {
-
     }
 }

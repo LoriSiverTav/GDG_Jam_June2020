@@ -21,9 +21,8 @@ public class LevelSol
 [Serializable]
 public class Shape
 {
-    public string shapeName;
+    public Item_ScptObj itemShape;
     public int value;
-    public Image shapeImage;
 }
 
 [Serializable]
@@ -56,47 +55,32 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        finalSolution.finalSolutionCombo = GenerateFinalSolution();
+
         System.Random rnd = new System.Random();
 
-        foreach (var lvl in levels)
+        for (int i = 0; i < levels.Length; i++)
         {
+
             Vector2 start;
             Vector2 end;
 
-            lvl.solutionPath = GenerateLvlSolution(out start, out end);
-            lvl.startPoint = start;
-            lvl.endPoint = end;
+            levels[i].solutionPath = GenerateLvlSolution(out start, out end);
+            levels[i].startPoint = start;
+            levels[i].endPoint = end;
 
             var vals = Enumerable.Range(0, 4).OrderBy(r => rnd.Next()).ToArray();
-            lvl.lockSolution = vals;
-        }
+            levels[i].lockSolution = vals;
 
-        finalSolution.finalSolutionCombo = GenerateFinalSolution();
-
-        foreach (var x in finalSolution.finalSolutionCombo)
-        {
-            Shape shape = finalSolution.allShapes.FirstOrDefault(y => y.value == x);
-            Debug.Log(shape.shapeName);
+            var tpIndex = finalSolution.finalSolutionCombo[i];
+            levels[i].treasurePiece = finalSolution.allShapes[tpIndex].itemShape;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene(1);
-        }
-        else if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            lvlIndex = 0;
-            SceneManager.LoadScene(2);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            lvlIndex = 1;
-            SceneManager.LoadScene(2);
-        }
+
     }
 
     static public int[,] GenerateLvlSolution(out Vector2 start, out Vector2 end)

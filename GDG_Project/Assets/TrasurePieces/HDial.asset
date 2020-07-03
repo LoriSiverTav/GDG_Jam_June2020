@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f12e744484a2345bc782b3235ee4a1, type: 3}
   m_Name: HDial
   m_EditorClassIdentifier: 
-  itemName: 
-  itemSprite: {fileID: 0}
+  itemName: Hearts
+  itemSprite: {fileID: 21300000, guid: d05d24c41f898594b89954320439d45d, type: 3}
+  groundSymbolSprite: {fileID: 21300000, guid: c7360a7aaf93f7442b5152bc0d6398ad, type: 3}
