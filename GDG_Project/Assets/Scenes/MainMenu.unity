@@ -340,6 +340,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6364662898176053732, guid: 5e6aa4be592a53f44801cbffeb0eacaf,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Ancient Locks
+
+        ________________'
+      objectReference: {fileID: 0}
     - target: {fileID: 6364662899365182970, guid: 5e6aa4be592a53f44801cbffeb0eacaf,
         type: 3}
       propertyPath: m_LocalPosition.z
