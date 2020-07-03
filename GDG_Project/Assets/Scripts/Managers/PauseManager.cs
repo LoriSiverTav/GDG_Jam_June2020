@@ -99,7 +99,6 @@ public class PauseManager : MonoBehaviour
 
         for(int i = 0; i < InventoryManager.instance.treasurePieces.Count; i++)
         {
-            Debug.Log(i);
             if(!InventoryManager.instance.treasurePieces[i].itemSprite || i >= inventorySlots.Length) { return; }
 
             inventorySlots[i].GetComponent<Image>().sprite = InventoryManager.instance.treasurePieces[i].itemSprite;

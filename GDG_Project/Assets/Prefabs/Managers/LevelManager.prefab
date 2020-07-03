@@ -47,14 +47,35 @@ MonoBehaviour:
   - startPoint: {x: 0, y: 0}
     endPoint: {x: 0, y: 0}
     lockSolution: 
+    isComplete: 0
+    treasurePiece: {fileID: 0}
   - startPoint: {x: 0, y: 0}
     endPoint: {x: 0, y: 0}
     lockSolution: 
+    isComplete: 0
+    treasurePiece: {fileID: 0}
   - startPoint: {x: 0, y: 0}
     endPoint: {x: 0, y: 0}
     lockSolution: 
+    isComplete: 0
+    treasurePiece: {fileID: 0}
   - startPoint: {x: 0, y: 0}
     endPoint: {x: 0, y: 0}
     lockSolution: 
+    isComplete: 0
+    treasurePiece: {fileID: 0}
+  finalSolution:
+    allShapes:
+    - itemShape: {fileID: 11400000, guid: f545ce2df401a5148857be62ed709b32, type: 2}
+      value: 0
+    - itemShape: {fileID: 11400000, guid: 2de05e61891d0fb4881c3a01ebfbd598, type: 2}
+      value: 1
+    - itemShape: {fileID: 11400000, guid: 301c7cf9be8fcd748bec9a8b19a5deeb, type: 2}
+      value: 2
+    - itemShape: {fileID: 11400000, guid: b6f788638790c114b97e0e0958ff56ab, type: 2}
+      value: 3
+    finalSolutionCombo: 
+    isSolved: 0
   lvlIndex: 0
   gridSize: 3
+  treasurePiece: {fileID: 0}
