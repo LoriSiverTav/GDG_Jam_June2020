@@ -43,7 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010f4d566588dc141a780a1518e724c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffects: []
+  soundEffects:
+  - audioClip: {fileID: 8300000, guid: 0e2d1a347903b6145938dfc2d2fe2181, type: 3}
+    loop: 0
+    volume: 0.534
+    audioSource: {fileID: 0}
+    soundName: 1
+  - audioClip: {fileID: 8300000, guid: f6327a764a3fded42aea0b48abed9226, type: 3}
+    loop: 0
+    volume: 0.556
+    audioSource: {fileID: 0}
+    soundName: 0
   backgroundSong:
     audioClip: {fileID: 8300000, guid: c47d2078ad9f2944ea9e7410ae08bfde, type: 3}
     loop: 1

@@ -1547,7 +1547,11 @@ MonoBehaviour:
   ControlsCanvas: {fileID: 4706873417420377713}
   InventoryCanvas: {fileID: 4706873416714577880}
   DoubleCheckCanvas: {fileID: 6116767506113488865}
-  inventorySlots: []
+  inventorySlots:
+  - {fileID: 4706873417514113610}
+  - {fileID: 4706873416544637769}
+  - {fileID: 4706873416115703369}
+  - {fileID: 4706873415972600853}
 --- !u!1 &4706873416937206904
 GameObject:
   m_ObjectHideFlags: 0

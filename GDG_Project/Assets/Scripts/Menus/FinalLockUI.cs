@@ -21,8 +21,10 @@ public class FinalLockUI : MonoBehaviour
     {
         for(int i = 0; i < 4; i++)
         {
-            playerInput.Add(i);
+            playerInput.Add(0);
         }
+
+        UpdateSlots();
     }
 
     // Update is called once per frame
@@ -57,6 +59,7 @@ public class FinalLockUI : MonoBehaviour
 
         if((Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return)) && IsFinalSolutionCorrect())
         {
+            SoundManager.instance.PlaySound(SoundManager.SoundName.lockUnlock);
             SceneManager.LoadScene(3);
         }
     }
@@ -67,14 +70,14 @@ public class FinalLockUI : MonoBehaviour
         {
             int nextNum = playerInput[targetDial] + 1 < 4 ? playerInput[targetDial] + 1 : 0;
             playerInput[targetDial] = nextNum;
-            UpdateSlots();
         }
         else
         {
             int nextNum = playerInput[targetDial] - 1 < 0 ? 3 : playerInput[targetDial] - 1;
             playerInput[targetDial] = nextNum;
-            UpdateSlots();
         }
+        
+        UpdateSlots();
     }
 
     void MoveDialHorizontally(Direction direction)
@@ -97,6 +100,7 @@ public class FinalLockUI : MonoBehaviour
         {
             if(playerInput[i] != solution[i])
             {
+                SoundManager.instance.PlaySound(SoundManager.SoundName.lockClick);
                 return false;
             }
         }

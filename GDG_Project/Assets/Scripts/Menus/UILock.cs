@@ -198,7 +198,7 @@ public class UILock : MonoBehaviour
         {
             if (IsLockIsComplete())
             {
-                Debug.Log("Lock is Unlocked");
+                SoundManager.instance.PlaySound(SoundManager.SoundName.lockUnlock);
                 LevelManager.instance.levels[LevelManager.instance.lvlIndex].isComplete = true;
                 PlayerMovement.isPuzzling = false;
             }
@@ -206,8 +206,8 @@ public class UILock : MonoBehaviour
             {
                 tries--;
                 setTryText();
-                Debug.Log("*Lock Click");
-                
+                SoundManager.instance.PlaySound(SoundManager.SoundName.lockClick);
+
                 if (tries <= 0)
                 {
                     Debug.Log("Player dead");
