@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 enum Direction { up, down, left, right };
@@ -8,8 +10,11 @@ enum Direction { up, down, left, right };
 public class FinalLockUI : MonoBehaviour
 {
     public List<int> playerInput;
-    public int tries = 3;
+    public GameObject[] slots;
     public int targetDial = 0;
+
+    public Color highlightColor;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,11 @@ public class FinalLockUI : MonoBehaviour
         if (!PlayerMovement.isPuzzling)
         {
             return;
+        }
+
+        for(int i = 0; i < slots.Length; i++)
+        {
+            slots[i].GetComponent<Image>().color = targetDial == i ? highlightColor : Color.white;
         }
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -57,11 +67,13 @@ public class FinalLockUI : MonoBehaviour
         {
             int nextNum = playerInput[targetDial] + 1 < 4 ? playerInput[targetDial] + 1 : 0;
             playerInput[targetDial] = nextNum;
+            UpdateSlots();
         }
         else
         {
             int nextNum = playerInput[targetDial] - 1 < 0 ? 3 : playerInput[targetDial] - 1;
             playerInput[targetDial] = nextNum;
+            UpdateSlots();
         }
     }
 
@@ -90,5 +102,13 @@ public class FinalLockUI : MonoBehaviour
         }
 
         return true;
+    }
+
+    void UpdateSlots()
+    {
+        for(int i = 0; i < playerInput.Count; i++)
+        {
+            slots[i].GetComponent<Image>().sprite = LevelManager.instance.finalSolution.allShapes[playerInput[i]].itemShape.itemSprite;
+        }
     }
 }

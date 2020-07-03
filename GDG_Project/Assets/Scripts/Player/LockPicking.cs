@@ -28,7 +28,8 @@ public class LockPicking : MonoBehaviour
             PlayerMovement.isPuzzling = !PlayerMovement.isPuzzling;
             levelLock.ResetLock();
         }
-        else if(canOpenFinalUI && Input.GetKeyDown(KeyCode.E) && !LevelManager.instance.finalSolution.isSolved)
+        
+        if(canOpenFinalUI && Input.GetKeyDown(KeyCode.E) && !LevelManager.instance.finalSolution.isSolved)
         {
             PlayerMovement.isPuzzling = !PlayerMovement.isPuzzling;
         }
